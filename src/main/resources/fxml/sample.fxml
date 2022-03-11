@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="625.0" style="-fx-background-color: wheat;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.HomePage">
+    <effect>
+        <ColorAdjust />
+    </effect>
+    <Button id="btnClients" fx:id="btnClients" layoutX="195.0" layoutY="151.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="TRAVELLING AGENCY">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+    <Button fx:id="btnProducts" layoutX="197.0" layoutY="215.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="LOGIN">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+    <Button fx:id="btnOrders" layoutX="197.0" layoutY="280.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="REGISTER">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+</AnchorPane>
