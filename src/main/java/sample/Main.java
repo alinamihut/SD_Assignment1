@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.model.User;
 import sample.service.UserService;
 
 import java.io.File;
@@ -20,9 +21,9 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
 
-        model.User user = new model.User("1", "Alina", "M", "alinamihut@gmail.com", "pass");
-        UserService userService = new UserService();
-        userService.insertUser(user);
+        //User user = new User("3", "Alina", "M", "alinamihut@gmail.com", "pass");
+        //UserService userService = new UserService();
+        //userService.insertUser(user);
     }
 
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="625.0" style="-fx-background-color: wheat;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Register">
+    <effect>
+        <ColorAdjust />
+    </effect>
+    <Button fx:id="btnSignUp" layoutX="201.0" layoutY="275.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="REGISTER" onAction="#insertNewUser">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+   <Label layoutX="82.0" layoutY="66.0" prefHeight="18.0" prefWidth="86.0" text="First Name:">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Label>
+   <Label layoutX="82.0" layoutY="140.0" prefHeight="18.0" prefWidth="86.0" text="Email:">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Label>
+   <Label layoutX="82.0" layoutY="101.0" prefHeight="18.0" prefWidth="86.0" text="Last Name:">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Label>
+   <Label layoutX="82.0" layoutY="181.0" prefHeight="18.0" prefWidth="86.0" text="Password:">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Label>
+   <Label layoutX="82.0" layoutY="181.0" prefHeight="18.0" prefWidth="86.0">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Label>
+   <TextField fx:id="tfFirstName" layoutX="197.0" layoutY="66.0" prefHeight="26.0" prefWidth="235.0" />
+   <TextField fx:id="tfLastName" layoutX="197.0" layoutY="101.0" prefHeight="26.0" prefWidth="235.0" />
+   <TextField fx:id="tfEmail" layoutX="197.0" layoutY="140.0" prefHeight="26.0" prefWidth="235.0" />
+   <TextField fx:id="tfPassword" layoutX="197.0" layoutY="181.0" prefHeight="26.0" prefWidth="235.0" />
+   <Button fx:id="btnGoBack" layoutX="21.0" layoutY="352.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="135.0" style="-fx-background-color: peru;" text="Go back" onAction="#goBack">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+</AnchorPane>

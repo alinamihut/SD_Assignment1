@@ -9,17 +9,17 @@
     <effect>
         <ColorAdjust />
     </effect>
-    <Button id="btnClients" fx:id="btnClients" layoutX="195.0" layoutY="151.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="TRAVELLING AGENCY">
+    <Button id="btnTravellingAgency" fx:id="btnTravellingAgency" layoutX="195.0" layoutY="151.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="TRAVELLING AGENCY" onAction="#goToPageTravellingAgency">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="btnProducts" layoutX="197.0" layoutY="215.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="LOGIN">
+    <Button fx:id="btnLogin" layoutX="197.0" layoutY="215.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="LOGIN" onAction="#goToPageLogin">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="btnOrders" layoutX="197.0" layoutY="280.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="REGISTER">
+    <Button fx:id="btnSignUp" layoutX="197.0" layoutY="280.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="REGISTER" onAction="#goToPageSignUp">
         <font>
             <Font size="18.0" />
         </font>
