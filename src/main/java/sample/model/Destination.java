@@ -14,7 +14,7 @@ public class Destination {
         @Column(nullable = false)
         private String destinationName;
 
-        @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+        @OneToMany( cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "destination")
         private List <Package> packagesList;
 
     public Destination() {

@@ -1,8 +1,6 @@
 package sample.controller;
 
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,12 +20,10 @@ import sample.repository.PackageRepository;
 import sample.service.DestinationService;
 import sample.service.PackageService;
 
-import javax.security.auth.callback.Callback;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -44,11 +40,13 @@ public class TravellingAgencyController implements Initializable {
     public Button btnBack;
     public DatePicker dpStartDate;
     public DatePicker dpEndDate;
-    public TextField tfDestination;
+    public ChoiceBox cbDestination;
 
+    List<Package> listOfPackages;
     DestinationService destinationService = new DestinationService();
-    PackageRepository packageRepository = new PackageRepository();
     PackageService ps = new PackageService();
+    List<Destination> listOfDestinations;
+    private String nameOfTheClickedPackage;
     public void goBack(ActionEvent actionEvent) throws IOException {
         URL url = new File("src/main/resources/fxml/sample.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
@@ -106,9 +104,14 @@ public class TravellingAgencyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Package> listOfPackages;
-        listOfPackages = ps.retreivePackages();
+
+        listOfPackages = ps.retrievePackages();
         createTable(listOfPackages, tablePackages);
+        listOfDestinations=destinationService.retrieveAllDestinations();
+        for (Destination d:listOfDestinations){
+            cbDestination.getItems().add(d.getDestinationName());
+        }
+
     }
 
     public void handleClickTableView(MouseEvent mouseEvent) {
@@ -120,8 +123,81 @@ public class TravellingAgencyController implements Initializable {
             tfCapacity.setText(String.valueOf(String.valueOf(p.getCapacity())));
             dpStartDate.setValue(p.getStartDate());
             dpEndDate.setValue(p.getEndDate());
-            tfDestination.setText(p.getDestination().getDestinationName());
+            cbDestination.setValue(p.getDestination().getDestinationName());
+            nameOfTheClickedPackage = p.getName();
 
         }
+    }
+    public boolean validateNonemptyField(String s) {
+        if (s.isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+    public void clickAddPackageButton(ActionEvent actionEvent) throws IOException {
+
+
+
+        if(!validateNonemptyField(tfName.getText()) || !validateNonemptyField(tfPrice.getText()) || !validateNonemptyField(tfCapacity.getText())
+                || !validateNonemptyField(tfExtraDetails.getText()) ){
+            showAlert( "Please fill all the fields!");
+        }
+        else {
+            String name = tfName.getText();
+            Integer price = Integer.parseInt(tfPrice.getText());
+            String d = (String) cbDestination.getValue();
+            Integer capacity = Integer.parseInt(tfCapacity.getText());
+            String extraDetails = tfExtraDetails.getText();
+            LocalDate startDate = dpStartDate.getValue();
+            LocalDate endDate = dpEndDate.getValue();
+
+            String returnedString = ps.addPackage(name, price, startDate, endDate, extraDetails, capacity, d);
+            listOfPackages = ps.retrievePackages();
+            createTable(listOfPackages,tablePackages);
+            tablePackages.refresh();
+            showAlert(returnedString);
+
+
+        }
+    }
+
+    public void clickEditPackageButton(ActionEvent actionEvent) throws IOException {
+        if(!validateNonemptyField(tfName.getText()) || !validateNonemptyField(tfPrice.getText()) || !validateNonemptyField(tfCapacity.getText())
+                || !validateNonemptyField(tfExtraDetails.getText()) ){
+            showAlert( "Please fill all the fields!");
+        }
+        else {
+            String name = tfName.getText();
+            Integer price = Integer.parseInt(tfPrice.getText());
+            String d = (String) cbDestination.getValue();
+            Integer capacity = Integer.parseInt(tfCapacity.getText());
+            String extraDetails = tfExtraDetails.getText();
+            LocalDate startDate = dpStartDate.getValue();
+            LocalDate endDate = dpEndDate.getValue();
+
+            String returnedString = ps.editPackage(nameOfTheClickedPackage, name, price, startDate, endDate, extraDetails, capacity, d);
+            listOfPackages = ps.retrievePackages();
+            createTable(listOfPackages,tablePackages);
+            tablePackages.refresh();
+            showAlert(returnedString);
+
+
+        }
+    }
+
+    public void clickDeletePackageButton(ActionEvent actionEvent) throws IOException {
+        String name = tfName.getText();
+        ps.deletePackage(name);
+        tfName.clear();
+        listOfPackages = ps.retrievePackages();
+        createTable(listOfPackages,tablePackages);
+        tablePackages.refresh();
+        showAlert("Package deleted successfully!");
+    }
+    public void showAlert(String s) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Message");
+        alert.setHeaderText(s);
+        alert.show();
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public class DestinationRepository {
     public static final EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("ro.tutorial.lab.SD");
-    EntityManager em=entityManagerFactory.createEntityManager();
+
 
     public void insertDestination(String destinationName){
         int id = getNextAvailableIDForDestination();
@@ -65,11 +65,12 @@ public class DestinationRepository {
         Destination d = searchDestinationFromName(destinationName);
         em.getTransaction().begin();
         em.joinTransaction();
-        em.createQuery("DELETE FROM Destination WHERE destinationName = :destinationName").setParameter("destinationName", destinationName)
-                .executeUpdate();
         String id = getDestinationIDFromName(destinationName);
         em.createQuery("DELETE FROM Package WHERE id= :destinationID").setParameter("destinationID", Integer.parseInt(id) )
                 .executeUpdate();
+        em.createQuery("DELETE FROM Destination WHERE destinationName = :destinationName").setParameter("destinationName", destinationName)
+                .executeUpdate();
+
         em.getTransaction().commit();
         em.close();
 
