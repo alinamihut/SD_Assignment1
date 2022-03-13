@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controller.TravellingAgencyController"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="565.0" prefWidth="841.0" style="-fx-background-color: wheat;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.TravellingAgencyController">
+    <children>
+        <Label layoutX="290.0" layoutY="26.0" prefHeight="26.0" prefWidth="324.0" text="Travelling Agency" textAlignment="CENTER">
+            <font>
+                <Font size="24.0" />
+            </font></Label>
+        <Button fx:id="btnAddPackage" layoutX="553.0" layoutY="364.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: peru;" text="Add package">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <Button fx:id="btnModifyPackage" layoutX="553.0" layoutY="410.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: peru;" text="Edit package">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <Button fx:id="btnDeletePackage" layoutX="553.0" layoutY="456.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: peru;" text="Delete package">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <TextField fx:id="tfName" layoutX="614.0" layoutY="124.0" prefHeight="26.0" prefWidth="196.0" />
+        <TextField fx:id="tfPrice" layoutX="614.0" layoutY="154.0" prefHeight="26.0" prefWidth="196.0" />
+        <Label layoutX="505.0" layoutY="128.0" prefHeight="18.0" prefWidth="58.0" text="Name:" />
+        <Label layoutX="505.0" layoutY="158.0" prefHeight="18.0" prefWidth="58.0" text="Price:" />
+        <TextField fx:id="tfExtraDetails" layoutX="614.0" layoutY="240.0" prefHeight="26.0" prefWidth="196.0" />
+        <TextField fx:id="tfCapacity" layoutX="614.0" layoutY="273.0" prefHeight="26.0" prefWidth="196.0" />
+        <Label layoutX="505.0" layoutY="186.0" prefHeight="18.0" prefWidth="58.0" text="Start Date:" />
+        <Label layoutX="505.0" layoutY="213.0" prefHeight="18.0" prefWidth="58.0" text="End Date:" />
+        <Label layoutX="505.0" layoutY="244.0" prefHeight="18.0" prefWidth="83.0" text="Extra Details:" />
+        <Label layoutX="505.0" layoutY="273.0" prefHeight="18.0" prefWidth="58.0" text="Capacity:" />
+        <Button fx:id="btnDestinations" layoutX="623.0" layoutY="20.0" mnemonicParsing="false" onAction="#goToPageDestinations" prefHeight="38.0" prefWidth="140.0" style="-fx-background-color: peru;" text="Destinations">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+        <TableView fx:id="tablePackages" layoutX="19.0" layoutY="117.0" onMouseClicked="#handleClickTableView" prefHeight="339.0" prefWidth="462.0">
+            <columns>
+                <TableColumn prefWidth="75.0" />
+                <TableColumn prefWidth="75.0" />
+            </columns>
+        </TableView>
+        <Button fx:id="btnBack" layoutX="23.0" layoutY="20.0" mnemonicParsing="false" onAction="#goBack" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: peru;" text="Back">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <DatePicker fx:id="dpStartDate" layoutX="614.0" layoutY="182.0" prefHeight="26.0" prefWidth="196.0" />
+      <DatePicker fx:id="dpEndDate" layoutX="614.0" layoutY="209.0" prefHeight="26.0" prefWidth="196.0" />
+      <Label layoutX="505.0" layoutY="299.0" prefHeight="18.0" prefWidth="93.0" />
+    </children>
 </AnchorPane>
