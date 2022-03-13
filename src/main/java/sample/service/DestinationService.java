@@ -1,11 +1,9 @@
 package sample.service;
 
 import sample.model.Destination;
-import sample.model.Package;
 import sample.repository.DestinationRepository;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DestinationService {

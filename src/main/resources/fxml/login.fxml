@@ -9,7 +9,7 @@
     <effect>
         <ColorAdjust />
     </effect>
-    <Button fx:id="btnLogin" layoutX="201.0" layoutY="275.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="REGISTER" onAction="#validateLoginAndGoToNextPage">
+    <Button fx:id="btnLogin" layoutX="201.0" layoutY="275.0" mnemonicParsing="false" onAction="#validateLoginAndGoToNextPage" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="LOGIN">
         <font>
             <Font size="18.0" />
         </font>
@@ -31,7 +31,7 @@
     </Label>
     <TextField fx:id="tfEmail" layoutX="197.0" layoutY="140.0" prefHeight="26.0" prefWidth="235.0" />
     <TextField fx:id="tfPassword" layoutX="197.0" layoutY="181.0" prefHeight="26.0" prefWidth="235.0" />
-    <Button fx:id="btnGoBack" layoutX="21.0" layoutY="352.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="135.0" style="-fx-background-color: peru;" text="Go back" onAction="#goBack">
+    <Button fx:id="btnGoBack" layoutX="21.0" layoutY="352.0" mnemonicParsing="false" onAction="#goBack" prefHeight="19.0" prefWidth="135.0" style="-fx-background-color: peru;" text="Go back">
         <font>
             <Font size="18.0" />
         </font>

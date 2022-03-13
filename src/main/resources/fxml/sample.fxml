@@ -9,19 +9,24 @@
     <effect>
         <ColorAdjust />
     </effect>
-    <Button id="btnTravellingAgency" fx:id="btnTravellingAgency" layoutX="195.0" layoutY="151.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="TRAVELLING AGENCY" onAction="#goToPageTravellingAgency">
+    <Button id="btnTravellingAgency" fx:id="btnTravellingAgency" layoutX="195.0" layoutY="151.0" mnemonicParsing="false" onAction="#goToPageTravellingAgency" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="TRAVELLING AGENCY">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="btnLogin" layoutX="197.0" layoutY="215.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="LOGIN" onAction="#goToPageLogin">
+    <Button fx:id="btnLogin" layoutX="197.0" layoutY="215.0" mnemonicParsing="false" onAction="#goToPageLogin" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="LOGIN">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="btnSignUp" layoutX="197.0" layoutY="280.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="REGISTER" onAction="#goToPageSignUp">
+    <Button fx:id="btnSignUp" layoutX="197.0" layoutY="280.0" mnemonicParsing="false" onAction="#goToPageSignUp" prefHeight="51.0" prefWidth="226.0" style="-fx-background-color: peru;" text="REGISTER">
         <font>
             <Font size="18.0" />
         </font>
     </Button>
+   <Label layoutX="140.0" layoutY="55.0" text="Travel Booking System" textFill="#a1b572">
+      <font>
+         <Font size="36.0" />
+      </font>
+   </Label>
 </AnchorPane>

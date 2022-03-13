@@ -7,7 +7,6 @@ import sample.repository.DestinationRepository;
 import sample.repository.PackageRepository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PackageService {

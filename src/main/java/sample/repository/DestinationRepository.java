@@ -1,7 +1,6 @@
 package sample.repository;
 
 import sample.model.Destination;
-import sample.model.User;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;

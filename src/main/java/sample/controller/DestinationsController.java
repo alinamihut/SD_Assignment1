@@ -13,13 +13,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.model.Destination;
-import sample.model.Package;
 import sample.service.DestinationService;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -85,12 +83,9 @@ public class DestinationsController implements Initializable {
 
     public void pressButtonDeleteDestination(){
         String destinationName = tfName.getText();
-
-       // Destination deletedDestination = ds.retrieveDestination(destinationName);
         ds.deleteDestination(destinationName);
         tfName.clear();
         listOfDestinations = ds.retrieveAllDestinations();
-        //listOfDestinations.remove(deletedDestination);
         createTable(listOfDestinations, tableDestinations);
         tableDestinations.refresh();
         showAlert("Destination deleted successfully!");
