@@ -12,11 +12,27 @@ public class DestinationService {
     DestinationRepository destinationRepository = new DestinationRepository();
 
 
-    public void addDestination(Destination d){
-        destinationRepository.insertDestination(d);
+    public String addDestination(String destinationName){
+        if (destinationRepository.searchDestinationFromName(destinationName)!= null){
+            return "Destination already exists in the DB!";
+        }
+        else {
+            destinationRepository.insertDestination(destinationName);
+
+            return "Destination inserted successfully!";
+        }
     }
 
-    public List<Destination> retreiveDestinations() {
+    public void deleteDestination (String destinationName){
+        destinationRepository.deleteDestination(destinationName);
+    }
+
+    public Destination retrieveDestination(String destinationName){
+        Destination d = destinationRepository.searchDestinationFromName(destinationName);
+        if (d != null) return d;
+        else return null;
+    }
+    public List<Destination> retrieveAllDestinations() {
         List<Destination> listOfDestinations;
         listOfDestinations= destinationRepository.selectAllDestinations();
         return listOfDestinations;

@@ -1,6 +1,5 @@
 package sample.controller;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,23 +8,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.model.Destination;
 import sample.model.Package;
-import sample.model.Status;
 import sample.service.DestinationService;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,8 +31,8 @@ public class DestinationsController implements Initializable {
     public TextField tfName;
 
     DestinationService ds = new DestinationService();
-    public void handleClickTableView(MouseEvent mouseEvent) {
-    }
+
+    List<Destination> listOfDestinations;
 
     public void goBack(ActionEvent actionEvent) throws IOException {
         URL url = new File("src/main/resources/fxml/travellingAgency.fxml").toURI().toURL();
@@ -51,7 +44,7 @@ public class DestinationsController implements Initializable {
         window.show();
     }
 
-    public static void createTable(List<Destination> listOfDestinations, TableView<Destination> table){
+    public  void createTable(List<Destination> listOfDestinations, TableView<Destination> table){
         table.getItems().clear();
         table.getColumns().clear();
         TableColumn column1 = new TableColumn("Name");
@@ -65,8 +58,48 @@ public class DestinationsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Destination> listOfDestinations = new ArrayList<>();
-        listOfDestinations = ds.retreiveDestinations();
+        List<Destination> listOfDestinations;
+        listOfDestinations = ds.retrieveAllDestinations();
         createTable(listOfDestinations, tableDestinations);
+    }
+
+
+    public void handleClickTableView(MouseEvent mouseEvent) {
+        Destination d = (Destination) tableDestinations.getSelectionModel().getSelectedItem();
+        if (d!= null) {
+            tfName.setText(d.getDestinationName());
+
+
+        }
+    }
+
+    public void pressButtonAddDestination(){
+        String destinationName = tfName.getText();
+
+        String resultString = ds.addDestination(destinationName);
+        listOfDestinations = ds.retrieveAllDestinations();
+        createTable(listOfDestinations, tableDestinations);
+        tableDestinations.refresh();
+        showAlert(resultString);
+    }
+
+    public void pressButtonDeleteDestination(){
+        String destinationName = tfName.getText();
+
+       // Destination deletedDestination = ds.retrieveDestination(destinationName);
+        ds.deleteDestination(destinationName);
+        tfName.clear();
+        listOfDestinations = ds.retrieveAllDestinations();
+        //listOfDestinations.remove(deletedDestination);
+        createTable(listOfDestinations, tableDestinations);
+        tableDestinations.refresh();
+        showAlert("Destination deleted successfully!");
+    }
+
+    public void showAlert(String s) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Message");
+        alert.setHeaderText(s);
+        alert.show();
     }
 }

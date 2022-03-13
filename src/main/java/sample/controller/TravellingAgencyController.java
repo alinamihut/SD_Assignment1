@@ -44,6 +44,7 @@ public class TravellingAgencyController implements Initializable {
     public Button btnBack;
     public DatePicker dpStartDate;
     public DatePicker dpEndDate;
+    public TextField tfDestination;
 
     DestinationService destinationService = new DestinationService();
     PackageRepository packageRepository = new PackageRepository();
@@ -119,6 +120,7 @@ public class TravellingAgencyController implements Initializable {
             tfCapacity.setText(String.valueOf(String.valueOf(p.getCapacity())));
             dpStartDate.setValue(p.getStartDate());
             dpEndDate.setValue(p.getEndDate());
+            tfDestination.setText(p.getDestination().getDestinationName());
 
         }
     }

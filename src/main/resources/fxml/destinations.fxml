@@ -10,11 +10,11 @@
             <font>
                 <Font size="24.0" />
             </font></Label>
-        <Button fx:id="btnAddDestination" layoutX="425.0" layoutY="185.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="174.0" style="-fx-background-color: peru;" text="Add destination">
+        <Button fx:id="btnAddDestination" layoutX="425.0" layoutY="185.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="174.0" style="-fx-background-color: peru;" text="Add destination" onAction="#pressButtonAddDestination">
             <font>
                 <Font size="18.0" />
             </font></Button>
-        <Button fx:id="btnDeleteDestination" layoutX="425.0" layoutY="241.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="173.0" style="-fx-background-color: peru;" text="Delete destination">
+        <Button fx:id="btnDeleteDestination" layoutX="425.0" layoutY="241.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="173.0" style="-fx-background-color: peru;" text="Delete destination" onAction="#pressButtonDeleteDestination">
             <font>
                 <Font size="18.0" />
             </font></Button>

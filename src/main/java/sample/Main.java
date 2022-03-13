@@ -30,10 +30,10 @@ public class Main extends Application {
         //UserService userService = new UserService();
         //userService.insertUser(user);
 
-        Destination d = new Destination(1, "paris");
-        LocalDate localDate1 = LocalDate.now();//For reference
-        LocalDate localDate2 = LocalDate.of(1988, 5, 5);
-        Package p = new Package(1, "p1", 100, localDate1, localDate2, "qqqq", 30, 30, sample.model.Status.BOOKED, d);
+       // Destination d = new Destination(1, "paris");
+        //LocalDate localDate1 = LocalDate.now();//For reference
+        //LocalDate localDate2 = LocalDate.of(1988, 5, 5);
+        //Package p = new Package(1, "p1", 100, localDate1, localDate2, "qqqq", 30, 30, sample.model.Status.BOOKED, d);
 
         //DestinationService destinationService = new DestinationService();
         //destinationService.addDestination(d);
