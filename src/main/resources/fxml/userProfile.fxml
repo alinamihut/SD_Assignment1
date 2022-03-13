@@ -10,7 +10,7 @@
             <font>
                 <Font size="24.0" />
             </font></Label>
-        <Button fx:id="btnFilterPrice" layoutX="719.0" layoutY="131.0" mnemonicParsing="false"  prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: peru;" text="Filter" onAction="#filterByPrice">
+        <Button fx:id="btnFilterPrice" layoutX="719.0" layoutY="131.0" mnemonicParsing="false" onAction="#filterByPrice" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: peru;" text="Filter">
             <font>
                 <Font size="18.0" />
             </font></Button>
@@ -27,7 +27,7 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-        <TableView fx:id="tablePackages" layoutX="19.0" layoutY="117.0"  prefHeight="339.0" prefWidth="462.0">
+        <TableView fx:id="tablePackages" layoutX="19.0" layoutY="117.0" prefHeight="339.0" prefWidth="462.0">
             <columns>
                 <TableColumn prefWidth="75.0" />
                 <TableColumn prefWidth="75.0" />
@@ -45,12 +45,17 @@
             <Font size="18.0" />
          </font></Label>
         <ChoiceBox fx:id="cbDestination" layoutX="599.0" layoutY="248.0" prefHeight="26.0" prefWidth="94.0" />
-      <Button fx:id="btnFilterDate" layoutX="719.0" layoutY="192.0" mnemonicParsing="false"  prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: peru;" text="Filter" onAction="#filterByDate">
+      <Button fx:id="btnFilterDate" layoutX="719.0" layoutY="192.0" mnemonicParsing="false" onAction="#filterByDate" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: peru;" text="Filter">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnFilterDestination" layoutX="719.0" layoutY="241.0" mnemonicParsing="false"  prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: peru;" text="Filter" onAction="#filterByDestination">
+      <Button fx:id="btnFilterDestination" layoutX="719.0" layoutY="241.0" mnemonicParsing="false" onAction="#filterByDestination" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: peru;" text="Filter">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnViewAll" layoutX="516.0" layoutY="328.0" mnemonicParsing="false" onAction="#viewAll" prefHeight="39.0" prefWidth="216.0" style="-fx-background-color: peru;" text="View all packages">
          <font>
             <Font size="18.0" />
          </font>

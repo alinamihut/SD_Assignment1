@@ -79,6 +79,7 @@ public class DestinationsController implements Initializable {
         createTable(listOfDestinations, tableDestinations);
         tableDestinations.refresh();
         showAlert(resultString);
+        tfName.clear();
     }
 
     public void pressButtonDeleteDestination(){

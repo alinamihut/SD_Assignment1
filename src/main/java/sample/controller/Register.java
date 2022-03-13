@@ -45,6 +45,10 @@ public class Register {
         String password = tfPassword.getText();
         String userInsertedString = userService.insertUser(firstName,lastName,email,password);
        showAlert(userInsertedString);
+       tfFirstName.clear();
+       tfLastName.clear();
+       tfEmail.clear();
+       tfPassword.clear();
     }
 
     public void showAlert(String s) {

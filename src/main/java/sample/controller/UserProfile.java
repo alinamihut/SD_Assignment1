@@ -38,13 +38,14 @@ public class UserProfile implements Initializable {
     public Button btnBack;
     public Button btnFilterDate;
     public Button btnFilterDestination;
+    public Button btnViewAll;
 
     List<Package> listOfAvailablePackages = new ArrayList<>();
     List<Destination> listOfDestinations;
     PackageService ps = new PackageService();
     DestinationService ds = new DestinationService();
     public void goBack(ActionEvent actionEvent) throws IOException {
-        URL url = new File("src/main/resources/fxml/logjn.fxml").toURI().toURL();
+        URL url = new File("src/main/resources/fxml/login.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Scene sceneProducts = new Scene(root);
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -130,6 +131,11 @@ public class UserProfile implements Initializable {
 
     }
 
+    public void viewAll(ActionEvent actionEvent){
+
+        createTable(listOfAvailablePackages, tablePackages);
+
+    }
     public void filterByDate(ActionEvent actionEvent){
         LocalDate startDate = dpStartDate.getValue();
         LocalDate endDate = dpEndDate.getValue();

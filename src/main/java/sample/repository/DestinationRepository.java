@@ -65,10 +65,11 @@ public class DestinationRepository {
         em.getTransaction().begin();
         em.joinTransaction();
         String id = getDestinationIDFromName(destinationName);
-        em.createQuery("DELETE FROM Package WHERE id= :destinationID").setParameter("destinationID", Integer.parseInt(id) )
-                .executeUpdate();
         em.createQuery("DELETE FROM Destination WHERE destinationName = :destinationName").setParameter("destinationName", destinationName)
                 .executeUpdate();
+        em.createQuery("DELETE FROM Package WHERE id= :destinationID").setParameter("destinationID", Integer.parseInt(id) )
+                .executeUpdate();
+
 
         em.getTransaction().commit();
         em.close();
@@ -76,7 +77,7 @@ public class DestinationRepository {
     }
 
     public int getNextAvailableIDForDestination (){
-        return selectAllDestinations().size() + 1;
+        return selectAllDestinations().size() + 2;
     }
 
 
